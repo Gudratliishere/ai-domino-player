@@ -1,0 +1,27 @@
+.move-history {
+  width: 100%;
+  max-width: 480px;
+  text-align: left;
+}
+
+.move-history ol {
+  padding-left: 20px;
+  max-height: 220px;
+  overflow-y: auto;
+}
+
+.move-history li {
+  font-size: 14px;
+  padding: 2px 0;
+}
+
+.move-player {
+  font-weight: 700;
+  color: var(--text-h);
+}
+
+.move-ends {
+  color: var(--text);
+  font-family: var(--mono);
+  font-size: 12px;
+}

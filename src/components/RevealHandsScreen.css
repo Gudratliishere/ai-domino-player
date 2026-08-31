@@ -1,0 +1,10 @@
+.reveal-hands {
+  width: 100%;
+  border-top: 1px solid var(--border);
+  padding-top: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+

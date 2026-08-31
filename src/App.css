@@ -1,0 +1,267 @@
+.screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+@media (max-width: 480px) {
+  .screen {
+    padding: 24px 12px;
+    gap: 12px;
+  }
+}
+
+.hand-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.hint {
+  color: var(--text);
+  font-size: 15px;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.primary-btn,
+.secondary-btn {
+  font: inherit;
+  font-size: 16px;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: border-color 0.2s, opacity 0.2s;
+}
+
+.primary-btn {
+  color: var(--accent);
+  background: var(--accent-bg);
+  border: 2px solid transparent;
+}
+.primary-btn:hover:not(:disabled) {
+  border-color: var(--accent-border);
+}
+.primary-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.secondary-btn {
+  color: var(--text-h);
+  background: transparent;
+  border: 2px solid var(--border);
+}
+.secondary-btn:hover {
+  border-color: var(--text);
+}
+
+.win-banner {
+  width: 100%;
+  max-width: 480px;
+  box-sizing: border-box;
+  padding: 20px;
+  border-radius: 14px;
+  border: 2px solid;
+}
+
+.win-banner h2 {
+  margin: 0 0 6px;
+}
+
+.win-banner p {
+  color: var(--text);
+}
+
+.win-banner.win {
+  border-color: #3ecf7a;
+  background: rgba(62, 207, 122, 0.12);
+}
+.win-banner.win h2 {
+  color: #3ecf7a;
+}
+
+.win-banner.lose {
+  border-color: #d33636;
+  background: rgba(211, 54, 54, 0.1);
+}
+.win-banner.lose h2 {
+  color: #d33636;
+}
+
+.win-banner.draw {
+  border-color: var(--border);
+  background: var(--code-bg);
+}
+.win-banner.draw h2 {
+  color: var(--text-h);
+}
+
+.series-score {
+  width: 100%;
+  max-width: 480px;
+  box-sizing: border-box;
+  padding: 16px 20px;
+  border-radius: 14px;
+  border: 2px solid var(--border);
+  background: var(--code-bg);
+}
+
+.series-score h2 {
+  margin: 0 0 4px;
+  color: var(--text-h);
+}
+
+.series-score p {
+  margin: 0;
+}
+
+.opener-choices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+
+.opener-btn {
+  font: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  min-width: 92px;
+  padding: 14px 18px;
+  border-radius: 10px;
+  border: 2px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.opener-btn:hover {
+  border-color: var(--text);
+}
+
+.opener-btn.selected {
+  border-color: var(--accent-border);
+  background: var(--accent-bg);
+  color: var(--accent);
+}
+
+.opener-id {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-h);
+}
+
+.opener-btn.selected .opener-id {
+  color: var(--accent);
+}
+
+.opener-label {
+  font-size: 13px;
+}
+
+.log-warning {
+  width: 100%;
+  max-width: 480px;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: 2px solid #d3a136;
+  background: rgba(211, 161, 54, 0.12);
+  color: var(--text-h);
+  font-size: 14px;
+  text-align: left;
+}
+
+.match-length {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.length-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+
+.length-btn {
+  font: inherit;
+  font-size: 14px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 2px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.length-btn:hover {
+  border-color: var(--text);
+}
+
+.length-btn.selected {
+  border-color: var(--accent-border);
+  background: var(--accent-bg);
+  color: var(--accent);
+}
+
+.series-score.match-over.us {
+  border-color: #3ecf7a;
+  background: rgba(62, 207, 122, 0.12);
+}
+
+.series-score.match-over.them {
+  border-color: #d33636;
+  background: rgba(211, 54, 54, 0.1);
+}
+
+.hint.teams {
+  margin-top: 2px;
+  font-size: 13px;
+}
+
+.hint.air,
+.hint.pot {
+  margin-top: 6px;
+  font-size: 13px;
+}
+
+.hint.air strong {
+  color: var(--text-h);
+}
+
+.banked-note {
+  margin-top: 8px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: rgba(127, 127, 127, 0.12);
+  font-size: 13px;
+}
+
+/* An escape hatch, not a primary action: shared by the move logger, the reveal
+   screens filter override and the player-name editor. */
+.link-btn {
+  font: inherit;
+  font-size: inherit;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--accent);
+  text-decoration: underline;
+  cursor: pointer;
+}

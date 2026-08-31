@@ -1,0 +1,43 @@
+.language-switcher {
+  position: fixed;
+  top: 12px;
+  right: 16px;
+  z-index: 20;
+  display: flex;
+  gap: 2px;
+  padding: 3px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--code-bg);
+}
+
+.language-btn {
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  padding: 5px 12px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.language-btn:hover:not(.selected) {
+  color: var(--text-h);
+}
+
+.language-btn.selected {
+  background: var(--accent-bg);
+  color: var(--accent);
+}
+
+/* The switcher floats over the page, so short screens need the headings clear of it. */
+@media (max-width: 520px) {
+  .language-switcher {
+    top: 8px;
+    right: 8px;
+  }
+}

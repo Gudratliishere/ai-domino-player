@@ -1,0 +1,11 @@
+.stone-grid {
+  display: grid;
+  grid-template-columns: repeat(7, auto);
+  gap: 10px;
+  justify-content: center;
+  padding: 16px;
+
+  @media (max-width: 640px) {
+    grid-template-columns: repeat(4, auto);
+  }
+}

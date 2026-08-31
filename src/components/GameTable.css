@@ -1,0 +1,287 @@
+.game-table {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.table-middle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.table-surface {
+  flex: 1;
+  min-height: 130px;
+  /* A long chain keeps adding rows to the snake layout — cap the surface so
+     it scrolls internally instead of stretching the whole page taller and
+     pushing the hand tray further out of reach every few moves. */
+  max-height: min(56vh, 460px);
+  background: radial-gradient(ellipse at center, #6b2020 0%, #4a1414 100%);
+  border: 3px solid #2e0d0d;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* "safe" keeps this centered while short, but falls back to top-aligned
+     once the chain outgrows max-height — plain "center" here would clip the
+     start of an overflowing chain out of scroll range. */
+  justify-content: safe center;
+  gap: 8px;
+  padding: 16px;
+  box-sizing: border-box;
+  overflow: auto;
+}
+
+.seat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(18, 18, 22, 0.85);
+  min-width: 56px;
+  max-width: 116px;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+.seat.active {
+  border-color: #ffd35c;
+  box-shadow: 0 0 0 3px rgba(255, 211, 92, 0.25);
+}
+
+.seat-name {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1.2;
+}
+
+.seat-id {
+  font-weight: 700;
+  font-size: 16px;
+  color: #f4f0ea;
+  max-width: 92px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.seat-label {
+  font-size: 10px;
+  color: rgba(244, 240, 234, 0.65);
+}
+
+.seat-count {
+  font-size: 11px;
+  color: rgba(244, 240, 234, 0.85);
+  font-weight: 600;
+}
+
+.tile-rack {
+  display: flex;
+  gap: 3px;
+}
+
+.rack-top,
+.rack-bottom {
+  flex-direction: row;
+}
+
+.rack-left,
+.rack-right {
+  flex-direction: column;
+}
+
+.tile-back {
+  border-radius: 3px;
+  background: linear-gradient(135deg, #3a3a42, #202024);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+
+.rack-top .tile-back,
+.rack-bottom .tile-back {
+  width: 16px;
+  height: 26px;
+}
+
+.rack-left .tile-back,
+.rack-right .tile-back {
+  width: 26px;
+  height: 16px;
+}
+
+.chain-grid {
+  display: grid;
+  grid-auto-rows: min-content;
+  row-gap: 10px;
+  column-gap: 2px;
+  justify-content: center;
+}
+
+.chain-stone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-self: center;
+  align-self: center;
+  gap: 2px;
+}
+
+.played-by {
+  display: block;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: clip;
+  white-space: nowrap;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.end-zone,
+.drop-zone {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  justify-self: center;
+  align-self: center;
+  gap: 2px;
+  font: inherit;
+  color: rgba(255, 255, 255, 0.85);
+  background: transparent;
+  border: 2px dashed rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  cursor: default;
+}
+
+.end-zone {
+  min-width: 52px;
+  min-height: 52px;
+}
+
+.end-zone .end-value {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.end-zone .end-hint {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.drop-zone {
+  padding: 10px 18px;
+  font-size: 14px;
+  min-width: 220px;
+  text-align: center;
+}
+
+.end-zone.active,
+.drop-zone.active {
+  cursor: pointer;
+  border-style: solid;
+  border-color: #ffd35c;
+  color: #ffd35c;
+  animation: pulse-zone 1.4s ease-in-out infinite;
+}
+
+@keyframes pulse-zone {
+  0%,
+  100% {
+    box-shadow: 0 0 0 2px rgba(255, 211, 92, 0.35);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(255, 211, 92, 0.2);
+  }
+}
+
+.table-warning {
+  color: #ffb0a8;
+  font-size: 13px;
+  text-align: center;
+  margin: 0;
+}
+
+.hand-tray {
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  padding: 12px;
+  border-radius: 14px;
+  background: rgba(74, 20, 20, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.hand-tray.active {
+  background: rgba(74, 20, 20, 0.4);
+  border-color: rgba(255, 211, 92, 0.4);
+}
+
+@media (max-width: 640px) {
+  .seat {
+    min-width: 44px;
+    padding: 5px 6px;
+  }
+  .seat-label {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .game-table {
+    gap: 8px;
+  }
+  .table-middle {
+    gap: 6px;
+  }
+  .seat {
+    min-width: 40px;
+    max-width: 78px;
+    padding: 4px 5px;
+  }
+  .seat-id {
+    font-size: 14px;
+    max-width: 64px;
+  }
+  .seat-count {
+    font-size: 10px;
+  }
+  .table-surface {
+    padding: 8px;
+    min-height: 110px;
+    /* A phone has the least room to spare, so cap the board tighter — the
+       hand tray and recommendations below need to stay reachable. */
+    max-height: 38vh;
+  }
+  .drop-zone {
+    min-width: 0;
+    width: 100%;
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+  .end-zone {
+    min-width: 44px;
+    min-height: 44px;
+  }
+  .end-zone .end-value {
+    font-size: 16px;
+  }
+  .hand-tray {
+    padding: 8px;
+    gap: 4px;
+  }
+}

@@ -1,0 +1,188 @@
+.recommendations {
+  width: 100%;
+  max-width: 480px;
+  text-align: left;
+}
+
+.recommendations h3 {
+  margin: 0 0 8px;
+}
+
+.rec-basis {
+  margin-left: 10px;
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--text);
+}
+
+.recommendations.stale .recommendation-list {
+  opacity: 0.55;
+  transition: opacity 0.15s;
+}
+
+.recommendation-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.recommendation {
+  font: inherit;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 12px;
+  border-radius: 10px;
+  border: 2px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.rec-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  width: 100%;
+}
+
+.recommendation:hover {
+  border-color: var(--text);
+}
+
+.recommendation.best {
+  border-color: var(--accent-border);
+  background: var(--accent-bg);
+}
+
+.recommendation.selected {
+  border-color: var(--accent);
+}
+
+.rec-rank {
+  flex: 0 0 auto;
+  min-width: 34px;
+  padding-top: 2px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-h);
+}
+
+.recommendation.best .rec-rank {
+  color: var(--accent);
+}
+
+.rec-placement {
+  flex: 1 1 auto;
+  min-width: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-h);
+}
+
+.rec-reasons {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.rec-reason {
+  display: block;
+  padding: 1px 0 1px 14px;
+  position: relative;
+}
+
+.rec-reason::before {
+  content: '•';
+  position: absolute;
+  left: 2px;
+}
+
+/* A deduction, not an estimate — worth marking apart from the rest. */
+.rec-reason.proven {
+  color: #3ecf7a;
+}
+
+.rec-reason.proven::before {
+  content: '▪';
+}
+
+.rec-proven {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 1px 7px;
+  border-radius: 999px;
+  border: 1px solid #3ecf7a;
+  color: #3ecf7a;
+  background: rgba(62, 207, 122, 0.12);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+
+/* Every sampled deal was solved exactly rather than simulated. */
+.rec-solved {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 1px 7px;
+  border-radius: 999px;
+  border: 1px solid var(--accent-border);
+  color: var(--accent);
+  background: var(--accent-bg);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+
+.rec-score {
+  flex: 0 0 auto;
+  text-align: right;
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--text);
+}
+
+.rec-points {
+  display: block;
+  font-size: 17px;
+  font-weight: 700;
+  color: #3ecf7a;
+  white-space: nowrap;
+}
+
+.rec-points.negative {
+  color: #d33636;
+}
+
+.rec-winrate {
+  display: block;
+  margin-top: 2px;
+  font-size: 11px;
+  color: var(--text);
+}
+
+.rec-win-label {
+  display: block;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.recommendation:disabled {
+  cursor: default;
+  opacity: 0.85;
+}

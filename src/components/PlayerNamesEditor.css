@@ -1,0 +1,81 @@
+.player-names {
+  width: 100%;
+  max-width: 480px;
+  box-sizing: border-box;
+  padding: 16px 20px;
+  border-radius: 14px;
+  border: 2px solid var(--border);
+  background: var(--code-bg);
+  text-align: left;
+}
+
+.player-names h3 {
+  margin: 0 0 4px;
+  color: var(--text-h);
+}
+
+.player-name-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.player-name-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.player-seat {
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  display: grid;
+  place-items: center;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-h);
+}
+
+.player-name-input {
+  font: inherit;
+  font-size: 15px;
+  flex: 1;
+  min-width: 0;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 2px solid var(--border);
+  background: transparent;
+  color: var(--text-h);
+}
+
+.player-name-input:focus {
+  outline: none;
+  border-color: var(--accent-border);
+}
+
+.player-role {
+  flex-shrink: 0;
+  min-width: 62px;
+  font-size: 12px;
+  text-align: right;
+  color: var(--text);
+}
+
+.player-role.role-you {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.player-names-summary {
+  font-size: 14px;
+}
+
+.player-names-warning {
+  margin-top: 10px;
+  font-size: 13px;
+  color: #d3a136;
+}
